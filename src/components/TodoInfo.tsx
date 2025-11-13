@@ -36,7 +36,9 @@ export const TodoInfo: React.FC<TodoProps> = ({
     const trimmedTitle = editTitle.trim();
 
     if (!trimmedTitle) {
-      onDelete();
+      try {
+        await onDelete();
+      } catch (error) {}
 
       return;
     }
